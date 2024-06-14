@@ -1,0 +1,73 @@
+## -e -i ##
+
+./mync -e "./ttt 123456789" -i TCPS9876           || nc localhost 9876
+./mync -e "./ttt 123456789" -i TCPClocalhost      || nc -l -p 9876
+./mync -e "./ttt 123456789" -i UDPS9876           || nc -u localhost 9876 + CLIENT sey hello.
+./mync -e "./ttt 123456789" -i UDPC127.0.0.1,9876 || nc -u -l -p 9876
+./mync -e "./ttt 123456789" -i UDSSShoi1          || nc -U hoi1
+./mync -e "./ttt 123456789" -i UDSCShoi1          || nc -lU hoi1
+
+
+
+## -e -o ##
+./mync -e "./ttt 123456789" -o TCPS9876           || nc localhost 9876
+./mync -e "./ttt 123456789" -o TCPC127.0.0.1,9876 || nc -l -p 9876
+./mync -e "./ttt 123456789" -o UDPS9876           || nc -u localhost 9876 + CLIENT sey hello.
+./mync -e "./ttt 123456789" -o UDPC127.0.0.1,9876 || nc -u -l -p 9876
+./mync -e "./ttt 123456789" -o UDSSShoi1          || nc -U hoi1
+./mync -e "./ttt 123456789" -o UDSCShoi1          || nc -lU hoi1
+
+## -e -b ##
+
+./mync -e "./ttt 123456789" -b TCPS9876           || nc localhost 9876
+./mync -e "./ttt 123456789" -b TCPC127.0.0.1,9876 || nc -l -p 9876
+./mync -e "./ttt 123456789" -b UDPS9876           || nc -u localhost 9876 + CLIENT sey hello.
+./mync -e "./ttt 123456789" -b UDPC127.0.0.1,9876 || nc -u -l -p 9876
+./mync -e "./ttt 123456789" -b UDSSShoi1          || nc -U hoi1
+./mync -e "./ttt 123456789" -b UDSCShoi1          || nc -lU hoi1
+
+
+## -e -i -o ##
+./mync -e "./ttt 123456789" -i TCPS9876 -o TCPC127.0.0.1,9875 || nc localhost 9876 , nc -l -p 9875
+./mync -e "./ttt 123456789" -i TCPC127.0.0.1,9875 -o TCPS9876 || nc localhost 9876 , nc -l -p 9875
+./mync -e "./ttt 123456789" -i UDPS9876 -o UDPC127.0.0.1,9875 || nc -u localhost 9876 , nc -u -l -p 9875
+./mync -e "./ttt 123456789" -i UDPC127.0.0.1,9875 -o UDPS9876 || nc -u localhost 9876 , nc -u -l -p 9875 the -o need to send ack, because client is connecting to him
+
+./mync -e "./ttt 123456789" -i UDPS9876 -o TCPC127.0.0.1,9875 || nc -u localhost 9876 , nc -l -p 9875
+./mync -e "./ttt 123456789" -i UDPC127.0.0.1,9875 -o TCPS9876 || nc localhost 9876 , nc -u -l -p 9875
+
+
+## -i ##
+./mync -i TCPS9876           || nc localhost 9876
+./mync -i TCPC127.0.0.1,9876 || nc -l -p 9876
+./mync -i UDPS9876           || nc -u localhost 9876 + CLIENT sey hello.
+./mync -i UDPC127.0.0.1,9876 || nc -u -l -p 9876
+
+## -o ##
+./mync -o TCPS9876           || nc localhost 9876
+./mync -o TCPC127.0.0.1,9876 || nc -l -p 9876
+./mync -o UDPS9876           || nc -u localhost 9876 + CLIENT sey hello.
+./mync -o UDPC127.0.0.1,9876 || nc -u -l -p 9876
+
+## -b ##
+./mync -b TCPS9876           || nc localhost 9876
+./mync -b TCPC127.0.0.1,9876 || nc -l -p 9876
+./mync -b UDPS9876           || nc -u localhost 9876 + CLIENT sey hello.
+./mync -b UDPC127.0.0.1,9876 || nc -u -l -p 9876
+
+./mync -b UDPS9876 -t 5           || nc -u localhost 9876 + CLIENT sey hello.
+./mync -b UDPC127.0.0.1,9876 -t 5 || nc -u -l -p 9876
+
+## -i -o ##
+./mync -i TCPS9876 -o TCPC127.0.0.1,9875 || nc localhost 9876 , nc -l -p 9875
+./mync -i TCPC127.0.0.1,9875 -o TCPS9876 || nc localhost 9876 , nc -l -p 9875
+./mync -i UDPS9876 -o UDPC127.0.0.1,9875 || nc -u localhost 9876 , nc -u -l -p 9875
+./mync -i UDPC127.0.0.1,9875 -o UDPS9876 || nc -u localhost 9876 , nc -u -l -p 9875
+
+./mync -i UDPS9876 -o TCPC127.0.0.1,9875 || nc -u localhost 9876 , nc -l -p 9875
+./mync -i UDPC127.0.0.1,9875 -o TCPS9876 || nc localhost 9876 , nc -u -l -p 9875
+
+
+
+Credits for the file:
+Gal & hanan
