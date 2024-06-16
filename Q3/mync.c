@@ -12,7 +12,6 @@
 #include <netdb.h>
 #include <signal.h>
 #include <unistd.h>
-#include <bits/getopt_core.h>
 
 
 // Signal handler for SIGCHLD
@@ -24,7 +23,7 @@ void handle_sigchld(int sig) {
 
 // Helper function to run commands
 void RUN(char *command) {
-    char *args[10]; // Sufficient size for example, adjust as needed
+    char *args[10]; 
     int argc = 0;
     char *token = strtok(command, " ");
     while (token != NULL) {
