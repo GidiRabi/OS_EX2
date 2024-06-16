@@ -54,3 +54,9 @@ Enhance `mync` to support Unix Domain Sockets:
 - `UDSCD<path>`: Unix domain socket client for datagram communication (output only).
 - `UDSSS<path>`: Unix domain socket server for stream communication.
 - `UDSCS<path>`: Unix domain socket client for stream communication.
+
+
+### Authors 
+- Gidi Rabi
+- Eli Frydman
+- Matan Markovich
