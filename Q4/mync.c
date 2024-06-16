@@ -16,11 +16,7 @@
 
 #define BUFFER_SIZE 1024
 
-/*
- * Function Prototypes
- */
-
-/* Execute a command provided as a string.
+/** Execute a command provided as a string.
  * @param command_line: A command string including the program and its arguments.
  */
 void execute_command(char *command_line);
@@ -30,49 +26,45 @@ void execute_command(char *command_line);
  */
 void close_descriptors(int *fds);
 
-/* Handle the SIGALRM signal for timeouts.
+/** Handle the SIGALRM signal for timeouts.
  * @param signal: The signal number received.
  */
 void handle_timeout(int signal);
 
-/* Set up a TCP server that listens on a specified port.
+/** Set up a TCP server that listens on a specified port.
  * @param fds: An array to store the client socket descriptor.
  * @param port: The port number on which to listen for incoming connections.
  * @param dual_flag: Indicates if both input and output should be handled by the same socket.
  */
 void initialize_tcp_server(int *fds, int port, char *dual_flag);
 
-/* Establish a TCP client connection to a specified IP and port.
+/** Establish a TCP client connection to a specified IP and port.
  * @param fds: An array to store the client socket descriptor.
  * @param ip: The IP address of the server to connect to.
  * @param port: The port number on which the server is listening.
  */
 void create_tcp_client(int *fds, char *ip, int port);
 
-/* Initialize a UDP server that listens on a specified port.
+/** Initialize a UDP server that listens on a specified port.
  * @param fds: An array to store the server socket descriptor.
  * @param port: The port number on which the server will listen.
  * @param timeout_duration: The duration in seconds after which the server should timeout.
  */
 void setup_udp_server(int *fds, int port, int timeout_duration);
 
-/* Configure a UDP client to connect to a specified IP and port.
+/** Configure a UDP client to connect to a specified IP and port.
  * @param fds: An array to store the client socket descriptor.
  * @param ip: The IP address of the UDP server to connect to.
  * @param port: The port number on which the server is listening.
  */
 void create_udp_client(int *fds, char *ip, int port);
 
-/* Handle data transfer between sockets.
+/** Handle data transfer between sockets.
  * @param fds: An array of socket file descriptors.
  */
 void manage_data_transfer(int *fds);
 
-/*
- * Detailed Function Implementations
- */
-
-/*
+/**
  * Execute external commands using fork and execvp.
  * @param command_line: A command string including the program and its arguments.
  */
@@ -107,7 +99,7 @@ void execute_command(char *command_line) {
     }
 }
 
-/*
+/**
  * Close any open sockets if they are not standard input/output.
  * @param fds: An array of socket file descriptors.
  */
@@ -116,7 +108,7 @@ void close_descriptors(int *fds) {
     if (fds[1] != STDOUT_FILENO) close(fds[1]);
 }
 
-/*
+/**
  * Signal handler for timeout events.
  * @param signal: The signal number received.
  */
@@ -125,7 +117,7 @@ void handle_timeout(int signal) {
     exit(EXIT_SUCCESS);
 }
 
-/*
+/**
  * Sets up a TCP server and accepts a client connection.
  * @param fds: An array to store the client socket descriptor.
  * @param port: The port number on which to listen for incoming connections.
@@ -177,7 +169,7 @@ void initialize_tcp_server(int *fds, int port, char *dual_flag) {
     }
 }
 
-/*
+/**
  * Establish a TCP client connection to a specific IP and port.
  * @param fds: An array to store the client socket descriptor.
  * @param ip: The IP address of the server to connect to.
@@ -205,7 +197,7 @@ void create_tcp_client(int *fds, char *ip, int port) {
     fds[1] = client_socket;
 }
 
-/*
+/**
  * Initialize a UDP server that listens on a specified port.
  * @param fds: An array to store the server socket descriptor.
  * @param port: The port number on which the server will listen.
@@ -255,7 +247,7 @@ void setup_udp_server(int *fds, int port, int timeout_duration) {
     }
 }
 
-/*
+/**
  * Configure a UDP client to connect to a specified IP and port.
  * @param fds: An array to store the client socket descriptor.
  * @param ip: The IP address of the UDP server to connect to.
@@ -283,7 +275,7 @@ void create_udp_client(int *fds, char *ip, int port) {
     fds[1] = client_socket;
 }
 
-/*
+/**
  * Handle data transfer between sockets, utilizing the poll system call.
  * Monitors two sockets for incoming data and forwards data between them.
  * @param fds: An array of socket file descriptors.
